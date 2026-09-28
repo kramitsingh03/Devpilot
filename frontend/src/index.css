@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  @apply bg-base-900 text-base-50 font-sans antialiased;
+  font-feature-settings: 'ss01' on, 'ss02' on;
+}
+
+/* Thin, dark scrollbars to match the theme */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #343c63;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #454e80;
+}
+
+/* Focus visibility for accessibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #9d8cff;
+  outline-offset: 2px;
+}
+
+@layer components {
+  .card {
+    @apply bg-base-700 border border-base-600/60 rounded-xl2 p-4 sm:p-5;
+  }
+  .panel {
+    @apply bg-base-800 border border-base-600/40 rounded-xl2;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-accent to-accent-light
+           text-white font-semibold px-4 py-2.5 text-sm shadow-glow hover:brightness-110 transition;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-base-600/60 border border-base-500
+           text-base-50 font-medium px-4 py-2.5 text-sm hover:bg-base-600 transition;
+  }
+  .input-field {
+    @apply w-full rounded-lg bg-base-800 border border-base-500 px-3.5 py-2.5 text-sm text-base-50
+           placeholder:text-base-50/40 focus:border-accent focus:ring-1 focus:ring-accent outline-none transition;
+  }
+  .pill {
+    @apply inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-medium;
+  }
+}
